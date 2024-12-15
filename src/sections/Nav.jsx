@@ -6,7 +6,7 @@ import { cart, cross, menu, profile, search } from "../assets/icons/icons";
 const Nav = () => {
   const [visible, setVisible] = useState(false);
   return (
-    <nav className="flex justify-between items-center py-5 font-medium">
+    <nav className="flex justify-between items-center py-5 font-medium ">
       {/* name */}
       <a href="" className="text-3xl font-bold uppercase">
         Flone.
