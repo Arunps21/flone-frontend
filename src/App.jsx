@@ -1,24 +1,21 @@
-import React from 'react'
-import Nav from './sections/Nav'
-import NewArrival from './sections/NewArrival'
-import BestSeller from './sections/BestSeller'
-import OurPolicies from './sections/OurPolicies'
-import NewsLetter from './sections/NewsLetter'
-import Footer from './components/Footer'
-// import Hero from './sections/Hero'
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./sections/Home";
+import Footer from "./components/Footer";
+import Nav from "./components/Nav";
+import Collections from "./pages/Collections";
 
 const App = () => {
   return (
-    <main className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
-      <Nav/>
-      {/* <Hero/> */}
-      <NewArrival/>
-      <BestSeller/>
-      <OurPolicies/>
-      <NewsLetter/>
-      <Footer/>
-    </main>
-  )
-}
+    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/collection" element={<Collections />} />
+        </Routes>
+      <Footer />
+    </div>
+  );
+};
 
-export default App
+export default App;

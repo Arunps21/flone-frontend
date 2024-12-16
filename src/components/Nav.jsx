@@ -20,8 +20,8 @@ const Nav = () => {
         <NavLink to="">
           <p className="active:text-coral-red">About</p>
         </NavLink>
-        <NavLink to="">
-          <p className="hover:text-coral-red">products</p>
+        <NavLink to="/collection">
+          <p className="hover:text-coral-red">Collections</p>
         </NavLink>
         <NavLink to="">
           <p className="hover:text-coral-red">contact us</p>
