@@ -8,7 +8,7 @@ const Nav = () => {
   return (
     <nav className="flex justify-between items-center py-5 font-medium ">
       {/* name */}
-      <a href="" className="text-3xl font-bold uppercase">
+      <a href="/" className="text-3xl font-bold uppercase">
         Flone.
       </a>
 

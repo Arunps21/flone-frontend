@@ -33,37 +33,36 @@ const Hero = () => {
     //   </div>
     // </section>
 
-
-<section className="flex flex-col sm:flex-row justify-around max-width bg-slate-100 relative">
-  {/* Right side (Image) */}
-  <div className="order-1 sm:order-2 w-full sm:w-1/2 sm:mr-20">
-    <img
-      src={heroPart[0].imgUrl}
-      alt={heroPart[0].altText}
-      className="w-full h-[300px] sm:h-[500px] object-cover"
-    />
-  </div>
-
-  {/* Left side (Content) */}
-  <div className="order-2 sm:order-1 w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0">
-    <div className="flex flex-col justify-center items-center">
-      <div className="flex justify-center items-center gap-5">
-        <p className="w-8 md:w-11 h-[2px] bg-black"></p>
-        <p className="font-bold text-sm sm:text-lg">Stylish</p>
-        <p className="w-8 md:w-11 h-[2px] bg-black"></p>
+    <section class="flex flex-col sm:flex-row justify-around max-w-screen-xl mx-auto relative py-16 px-6">
+      <div class="order-1 sm:order-2 w-full sm:w-1/2 sm:mr-10">
+        <img
+          src={heroPart[0].imgUrl}
+          alt="Stylish Men's Fashion"
+          class="w-full h-[300px] sm:h-[500px] object-cover "
+        />
       </div>
-      <h1 className="mt-4 text-2xl sm:text-4xl font-bold uppercase">
-        Men's <span className="text-coral-red">Fashion</span>
-      </h1>
-      <p className="font-montserrat text-lg leading-8 uppercase text-coral-red mt-4">
-        Save up to 30%
-      </p>
-      <button className="uppercase border px-4 py-2 mt-4 hover:bg-coral-red hover:text-white-400">
-        Shop Now
-      </button>
-    </div>
-  </div>
-</section>
+
+      <div class="order-2 sm:order-1 w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0">
+        <div class="text-center sm:text-left">
+          <div class="flex justify-center sm:justify-start items-center gap-5">
+            <p class="w-8 md:w-11 h-[2px] bg-black"></p>
+            <p class="font-bold text-sm sm:text-lg uppercase text-gray-600">
+              Stylish
+            </p>
+            <p class="w-8 md:w-11 h-[2px] bg-black"></p>
+          </div>
+          <h1 class="mt-4 text-3xl sm:text-5xl font-bold uppercase text-gray-800">
+            Men's <span class="text-red-500">Fashion</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-gray-600 leading-8 uppercase mt-4">
+            Save up to <span class="text-red-500 font-bold">30%</span>
+          </p>
+          <button class="uppercase border px-6 py-3 mt-6 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition-all shadow-md">
+            Shop Now
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
 
