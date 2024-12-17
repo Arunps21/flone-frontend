@@ -8,6 +8,9 @@ const ShopContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
+  const [cartItems,setCartItems] = useState({})
+
+  
 
   return (
     <ShopContext.Provider

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
+import RelatedProducts from "../components/RelatedProducts";
 
 const IndividualProduct = () => {
   const { rupee } = useContext(ShopContext);
@@ -71,6 +72,8 @@ const IndividualProduct = () => {
       </div>
 
       {/* realted products */}
+
+      <RelatedProducts/>
     </div>
   );
 };
