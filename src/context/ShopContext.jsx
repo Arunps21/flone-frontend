@@ -6,9 +6,22 @@ const ShopContextProvider = ({ children }) => {
   const rupee = "₹";
   const deliveryFee = 10;
   const [products, setProducts] = useState([]);
-  
+  const [search, setSearch] = useState("");
+  const [showSearch, setShowSearch] = useState(false);
+
   return (
-    <ShopContext.Provider value={{ products, setProducts, rupee, deliveryFee }}>
+    <ShopContext.Provider
+      value={{
+        products,
+        setProducts,
+        rupee,
+        deliveryFee,
+        search,
+        setSearch,
+        showSearch,
+        setShowSearch,
+      }}
+    >
       {children}
     </ShopContext.Provider>
   );

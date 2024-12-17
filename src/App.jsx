@@ -4,14 +4,18 @@ import Home from "./sections/Home";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Collections from "./pages/Collections";
+import SearchBar from "./components/SearchBar";
+import IndividualProduct from "./pages/IndividualProduct";
 
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       <Nav />
+      <SearchBar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collection" element={<Collections />} />
+          <Route path="/product/:id" element={<IndividualProduct/>}/>
         </Routes>
       <Footer />
     </div>
