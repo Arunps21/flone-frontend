@@ -13,7 +13,6 @@ const ShopContextProvider = ({ children }) => {
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
 
-  console.log(backendUrl);
   
   const getProducts = async () => {
     try {
