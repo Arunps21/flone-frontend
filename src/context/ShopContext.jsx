@@ -40,6 +40,7 @@ const ShopContextProvider = ({ children }) => {
         setSearch,
         showSearch,
         setShowSearch,
+        backendUrl
       }}
     >
       {children}

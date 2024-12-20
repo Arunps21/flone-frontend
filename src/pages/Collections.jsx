@@ -4,7 +4,7 @@ import ProductCard from "../components/ProductCard";
 import { ShopContext } from "../context/ShopContext";
 
 const Collections = () => {
-  const { products } = useContext(ShopContext);
+  const { products, search } = useContext(ShopContext);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
@@ -45,6 +45,11 @@ const Collections = () => {
   useEffect(() => {
     // Apply filters
     let filteredProducts = products.slice();
+    if (search) {
+      filteredProducts = filteredProducts.filter((item) =>
+        item.name.toLocaleLowerCase().match(search.toLocaleLowerCase())
+      );
+    }
     if (category.length > 0) {
       filteredProducts = filteredProducts.filter((item) =>
         category.includes(item.category)
@@ -58,7 +63,7 @@ const Collections = () => {
     // Apply sorting
     const sortedFilteredProducts = sortProduct(filteredProducts);
     setFilterProducts(sortedFilteredProducts);
-  }, [category, subCategory, sort, products]);
+  }, [category, subCategory, sort, products,search]);
 
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
@@ -148,7 +153,7 @@ const Collections = () => {
                   image={item.image}
                 />
               ))
-            : "No products available"}
+            : <p className="text-sm text-gray-500">No products available</p>}
         </div>
       </div>
     </div>

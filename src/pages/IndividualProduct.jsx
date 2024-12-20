@@ -1,39 +1,64 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import RelatedProducts from "../components/RelatedProducts";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const IndividualProduct = () => {
-  const { rupee } = useContext(ShopContext);
-  const [size, setSize] = useState("");
+  const { rupee, backendUrl } = useContext(ShopContext);
+  const [product, setProduct] = useState({});
   const { id } = useParams();
+
+  const singleProduct = async () => {
+    try {
+      const { data } = await axios.get(
+        `${backendUrl}/product/singleview/${id}`
+      );
+      if (data.success == true) {
+        setProduct(data.product);
+      } else {
+        toast.error(data.msg);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    singleProduct();
+    console.log(product);
+    
+  }, []);
   return (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
       {/* product data */}
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
         {/* product images */}
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
-          {/* <div className='flex flex-col overflow-x-auto sm:overflow-y-auto justify-between sm:justify-normal sm:w-[18.7%] w-full'>
-
-                </div> */}
           <div className="w-full sm:w-[80%]">
-            <img className="w-full h-auto" src="" alt="image" />
+            <img className="w-full h-auto" src={product.image} alt="image" />
           </div>
         </div>
 
         {/* product Information */}
         <div className="flex-1 ">
-          <h1 className="font-medium text-2xl mt-2">product name</h1>
+          <h1 className="font-medium text-2xl mt-2">{product.name}</h1>
           <div className="flex items-center gap-1 mt-2">
             <img src="" alt="rating" />
             <p className="pl-2">(122)</p>
           </div>
-          <p className="mt-5 text-3xl font-medium">{rupee}</p>
-          <p className="mt-5 text-gray-500 md:w-4/5">product description</p>
+          <p className="mt-5 text-3xl font-medium">
+            {rupee}
+            {product.price}
+          </p>
+          <p className="mt-5 text-gray-500 md:w-4/5">{product.description}</p>
           <div className="flex flex-col gap-4 my-8">
             <p>Select Size</p>
             <div className="flex gap-2">
-              <button className={`border py-2 px-4 bg-gray-100 `}>sm</button>
+                <button className={`border py-2 px-4 bg-gray-100 `}>
+                  sm
+                </button>
             </div>
           </div>
 
@@ -73,7 +98,7 @@ const IndividualProduct = () => {
 
       {/* realted products */}
 
-      <RelatedProducts/>
+      <RelatedProducts />
     </div>
   );
 };
