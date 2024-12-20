@@ -7,10 +7,12 @@ import Collections from "./pages/Collections";
 import SearchBar from "./components/SearchBar";
 import IndividualProduct from "./pages/IndividualProduct";
 import Cart from "./pages/Cart";
+import { ToastContainer} from 'react-toastify';
 
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      <ToastContainer/>
       <Nav />
       <SearchBar/>
         <Routes>

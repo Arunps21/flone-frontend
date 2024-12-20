@@ -6,10 +6,10 @@ import ProductCard from "../components/ProductCard";
 const BestSeller = () => {
   const { products } = useContext(ShopContext);
   const [bestSeller, setBestSeller] = useState([]);
-
+  
   useEffect(() => {
     setBestSeller(products.slice(0, 5));
-  }, []);
+  }, [products]);
 
   return (
     <section className="my-10">
