@@ -27,8 +27,6 @@ const IndividualProduct = () => {
 
   useEffect(() => {
     singleProduct();
-    console.log(product);
-    
   }, []);
   return (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
@@ -56,9 +54,7 @@ const IndividualProduct = () => {
           <div className="flex flex-col gap-4 my-8">
             <p>Select Size</p>
             <div className="flex gap-2">
-                <button className={`border py-2 px-4 bg-gray-100 `}>
-                  sm
-                </button>
+              <button className={`border py-2 px-4 bg-gray-100 `}>sm</button>
             </div>
           </div>
 
@@ -98,7 +94,7 @@ const IndividualProduct = () => {
 
       {/* realted products */}
 
-      <RelatedProducts />
+      <RelatedProducts category={product.category} subCategory={product.subCategory}/>
     </div>
   );
 };
