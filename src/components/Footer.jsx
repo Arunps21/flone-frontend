@@ -3,6 +3,7 @@ import { LuFacebook } from "react-icons/lu";
 import { FaInstagram } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiYoutube } from "react-icons/fi";
+import { master, visa } from "../assets/icons/icons";
 
 const Footer = () => {
   return (
@@ -16,6 +17,10 @@ const Footer = () => {
             sit similique eaque delectus perspiciatis fuga placeat sapiente
             porro atque eveniet error.
           </p>
+          <div className="flex gap-2 mt-1">
+            <img className="h-7 w-7" src={visa} alt="" />
+            <img className="h-7 w-7" src={master} alt="" />
+          </div>
         </div>
 
         <div>
